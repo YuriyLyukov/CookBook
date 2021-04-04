@@ -1,13 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CreateService} from './create.service';
 import {ICreateRecipeRequest} from '../shared/models/createRecipeRequest';
 import {HttpClient} from '@angular/common/http';
-import {IUpdateRecipeRequest} from "../shared/models/updateRecipeRequest";
-import {IRecipe} from "../shared/models/recipe";
-import {UpdateService} from "./update.service";
-import {RecipesService} from "../recipes/recipes.service";
+import {IUpdateRecipeRequest} from '../shared/models/updateRecipeRequest';
+
+import {UpdateService} from './update.service';
+import {RecipesService} from '../recipes/recipes.service';
 
 @Component({
   selector: 'app-create',
@@ -38,8 +38,6 @@ export class CreateComponent implements OnInit {
         name: this.recipe.name,
         description: this.recipe.description
       });
-      console.log('value');
-      console.log(this.recipeForm.get('description').value);
     }
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/recipes';
     if (this.activatedRoute.snapshot.queryParams.parentId)
