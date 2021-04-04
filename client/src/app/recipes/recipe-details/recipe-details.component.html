@@ -1,0 +1,43 @@
+<section class="text-gray-600 body-font overflow-hidden">
+  <div *ngIf="recipe" class="container px-5 py-6 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">RECIPE NAME: </h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">{{recipe.name}}</h1>
+        <h1 class="flex-grow text-indigo-500 py-2 text-lg">Recipe Description: </h1>
+        <p class="leading-relaxed mb-4 text-black text-2xl">{{recipe.description}}</p>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">TreeId: </span>
+          <span class="ml-auto text-gray-900">{{recipe.treeId}}</span>
+        </div>
+        <div class="flex border-t  border-gray-200 py-2">
+          <span class="text-gray-500">Date: </span>
+          <span class="ml-auto text-gray-900">{{recipe.date | date}}</span>
+        </div>
+        <div class="flex">
+          <button routerLink="/create" [queryParams]="{parentId: recipe.id}" class="text-center w-1/2 text-white bg-indigo-500 border-0 py-2 mr-1 focus:outline-none hover:bg-indigo-600 rounded">Create Child Recipe from this</button>
+          <button routerLink="/create" [queryParams]="{id: recipe.id}"class="text-center w-1/2 text-white bg-indigo-500 border-0 py-2 focus:outline-none hover:bg-indigo-600 rounded">Modify Recipe</button>
+        </div>
+      </div>
+      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="/assets/images/undraw_cookie_love_ulvn.png">
+    </div>
+  </div>
+</section>
+<div *ngIf="parents && parents.length != 0" class="flex justify-center">
+  <h1 class="text-xl text-blue-500">All Recipe Parents</h1>
+</div>
+<div *ngIf="parents && parents.length == 0" class="flex justify-center">
+  <h1 class="text-xl text-blue-500">Recipe Has No Parents</h1>
+</div>
+<div class="flex justify-center">
+  <div class="bg-white shadow-xl rounded-lg w-1/2">
+    <div *ngFor="let parent of parents" class="divide-y divide-gray-300 flex-row flex justify-between">
+      <div class="p-4 hover:bg-gray-50 cursor-pointer w-full">Parent Name: {{parent.name}}    Parent Description: {{parent.description}}</div>
+      <button
+        routerLink="/recipes/{{parent.id}}"
+        class="flex flex-row px-8 py-3 font-semibold text-white transition duration-500 ease-in-out transform bg-black rounded-lg hover:bg-gray-800 hover:to-black focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">
+        Open
+      </button>
+    </div>
+  </div>
+</div>

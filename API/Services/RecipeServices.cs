@@ -126,5 +126,29 @@ namespace API.Services
             }
             return true;
         }
+
+        public async Task<List<Recipe>> GetAllParents(int id)
+        {
+            var parents = new List<Recipe>();
+            var child = await _dataContext.Recipes.FirstAsync(x => x.Id == id);
+            var allRecipesFromTreeThatHasRightMoreThanChild = await _dataContext.Recipes.Where(x => x.TreeId == child.TreeId && x.Right > child.Right).ToListAsync();
+            if (allRecipesFromTreeThatHasRightMoreThanChild.Count != 0)
+            {
+                var parentIdSearch = child.ParentId;
+                void FindAllParents(int? parentIdSearch)
+                {
+                    if (parentIdSearch != null)
+                    {
+                        var parentSearch = allRecipesFromTreeThatHasRightMoreThanChild.First(x => x.Id == parentIdSearch);
+                        parents.Add(parentSearch);
+                        parentIdSearch = parentSearch.ParentId;
+                        FindAllParents(parentIdSearch); 
+                    }
+                }
+                FindAllParents(parentIdSearch);   
+            }
+            parents = parents.OrderBy(x => x.Name).ToList();
+            return parents;
+        }
     }
 }

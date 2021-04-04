@@ -14,5 +14,6 @@ namespace API.Services
         Task<bool> DeletePostAsync(int recipeId);
         Task<int> FindLeftAtSpecificDeep(int deepLevel, Guid treeId, int parentId);
         Task<bool> IncrementAllPositionsWhenRecipeAdded(int right, Guid treeId, int parentId);
+        Task<List<Recipe>> GetAllParents(int id);
     }
 }

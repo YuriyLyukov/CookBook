@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using API.Contracts.V1.Requests;
@@ -76,6 +77,33 @@ namespace API.Controllers.V1
                 TreeId = recipe.TreeId
             };
             return Ok(response);
+        }
+
+        [HttpPatch(ApiRoutes.Recipes.Update)]
+        public async Task<IActionResult> Update([FromBody] UpdateRecipeRequest recipeRequest)
+        {
+            if (recipeRequest.Name == null || recipeRequest.Description == null)
+            {
+                return BadRequest(new {error = "Null variables [Name and Description] are not allowed"});
+            }
+
+            if (await _recipeService.GetRecipeByIdAsync((int)recipeRequest.Id) == null)
+            {
+                return BadRequest(new {error = "Recipe not found!"});
+            }
+
+            var recipe = await _recipeService.GetRecipeByIdAsync((int)recipeRequest.Id);
+            recipe.Name = recipeRequest.Name;
+            recipe.Description = recipeRequest.Description;
+            await _recipeService.UpdateRecipeAsync(recipe);
+            return Ok(recipe);
+        }
+
+        [HttpGet(ApiRoutes.Recipes.GetAllParents)]
+        public async Task<IActionResult> GetAllParents([FromRoute] int id)
+        {
+            var parents = await _recipeService.GetAllParents(id);
+            return Ok(parents);
         }
     }
 }

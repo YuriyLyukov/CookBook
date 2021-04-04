@@ -9,10 +9,10 @@
         public static class Recipes
         {
             public const string GetAll = Base + "/recipe";
-            public const string Update = Base + "/recipe/{recipeId}";
-            public const string Delete = Base + "/recipe/{recipeId}";
+            public const string Update = Base + "/recipe";
             public const string Get = Base + "/recipe/{recipeId}";
             public const string Create = Base + "/recipe";
+            public const string GetAllParents = Base + "/recipe/parent/{id}";
         }
     }
 }
