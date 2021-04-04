@@ -6,7 +6,7 @@ This is a solution for creating Recipe Book (SPA) with Angular and ASP.NET Core.
 * ASP.NET Core 3
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 * [Angular 11](https://angular.io/)
-* [XUnit]
+* XUnit
 
 ## Getting Started
 1. Install the latest [.NET 3 SDK](https://dotnet.microsoft.com/download/dotnet/3.0)
