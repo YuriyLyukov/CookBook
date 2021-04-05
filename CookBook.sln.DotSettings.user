@@ -16,5 +16,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ee56cb19_002D1dff_002D420c_002Dae91_002D1c3249045166/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Get_WhenCalled_ReturnOkResult #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::6CF86142-3BBC-4D25-A569-E39B26B324D5::.NETCoreApp,Version=v3.1::CookBook.Tests.RecipeControllerTest.Get_WhenCalled_ReturnOkResult&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CF86142-3BBC-4D25-A569-E39B26B324D5::.NETCoreApp,Version=v3.1::CookBook.Tests.RecipeControllerTest.Get_WhenCalled_ReturnsAllItems&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CF86142-3BBC-4D25-A569-E39B26B324D5::.NETCoreApp,Version=v3.1::CookBook.Tests.RecipeControllerTest.GetById_UnknownIdPassed_ReturnsNotFoundResult&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CF86142-3BBC-4D25-A569-E39B26B324D5::.NETCoreApp,Version=v3.1::CookBook.Tests.RecipeControllerTest.GetAll_WhenCalled_ReturnsAllItems&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::6CF86142-3BBC-4D25-A569-E39B26B324D5::.NETCoreApp,Version=v3.1::CookBook.Tests.RecipeControllerTest.GetById_WhenCalled_ReturnOkResult&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

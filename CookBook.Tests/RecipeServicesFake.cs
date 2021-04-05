@@ -55,7 +55,6 @@ namespace CookBook.Tests
         {
             throw new NotImplementedException();
         }
-        
 
         public Task<int> FindLeftAtSpecificDeep(int deepLevel, Guid treeId, int parentId)
         {
