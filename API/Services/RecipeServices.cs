@@ -40,16 +40,7 @@ namespace API.Services
             var updated = await _dataContext.SaveChangesAsync();
             return updated > 0;
         }
-
-        public async Task<bool> DeletePostAsync(int recipeId)
-        {
-            var recipe = await GetRecipeByIdAsync(recipeId);
-            if (recipe == null)
-                return false;
-            _dataContext.Recipes.Remove(recipe);
-            var deleted = await _dataContext.SaveChangesAsync();
-            return deleted > 0;
-        }
+        
 
         public async Task<int> FindLeftAtSpecificDeep(int deepLevel, Guid treeId, int parentId)
         {
